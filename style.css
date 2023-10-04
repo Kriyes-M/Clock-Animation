@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --clock-radius: 10rem;
+  --number-size: 2rem;
+  --number-offset: 2rem;
+
+  --minute-hand-animation-duration: 6s;
+  --hour-hand-animation-duration: 72s;
+
+  --number-glow-animation-duration: 6s;
+}
+
+@keyframes minuteHandRotation {
+  from {
+    transform: rotate(180deg);
+  }
+
+  to {
+    transform: rotate(540deg);
+  }
+}
+
+@keyframes hourHandRotation {
+  from {
+    transform: rotate(-135deg);
+  }
+
+  to {
+    transform: rotate(225deg);
+  }
+}
+
+@keyframes numberGlow {
+  0% {
+    text-shadow: none;
+  }
+
+  50% {
+    text-shadow: 1px 1px 2px white;
+  }
+
+  100% {
+    text-shadow: none;
+  }
+}
+
+body {
+  background-color: black;
+}
+
+.clock {
+  position: relative;
+  margin: 10rem auto;
+  background-color: rgb(46, 46, 46);
+  color: rgb(255, 255, 255);
+  width: calc(var(--clock-radius) * 2);
+  height: calc(var(--clock-radius) * 2);
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
+.hour-hand {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  height: calc(var(--clock-radius) * 0.56);
+  width: 4px;
+  top: 50%;
+  left: calc(var(--clock-radius) - 1px);
+
+  z-index: 1;
+
+  transform-origin: 2px 5px;
+  transform: rotate(-120deg);
+
+  animation: hourHandRotation var(--hour-hand-animation-duration);
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+.minute-hand {
+  position: absolute;
+  background-color: crimson;
+  height: calc(var(--clock-radius) - var(--number-size) * 1.5);
+  width: 2px;
+  top: 50%;
+  left: calc(var(--clock-radius));
+
+  transform-origin: 1px 5px;
+  transform: rotate(180deg);
+
+  animation: minuteHandRotation var(--minute-hand-animation-duration);
+  animation-timing-function: linear;
+  animation-iteration-count: 12;
+}
+
+.number {
+  color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  font-size: var(--number-size);
+  font-family: 'Dela Gothic One', cursive;
+  width: 2rem;
+  text-align: center;
+  top: calc(50% - (var(--number-size) / 2 + 5px));
+  left: calc(50% - (var(--number-size) / 2));
+}
+
+.one {
+  transform: rotate(-60deg) translate(calc(var(--clock-radius) - var(--number-offset))) rotate(60deg);
+  animation: numberGlow var(--number-glow-animation-duration) linear;
+  animation-delay: calc(var(--number-glow-animation-duration) * 11);
+}
+
+.two {
+  transform: rotate(-30deg) translate(calc(var(--clock-radius) - var(--number-offset))) rotate(30deg);
+
+  animation: numberGlow var(--number-glow-animation-duration) linear;
+  animation-delay: 0;
+}
+
+.three {
+  transform: rotate(0deg) translate(calc(var(--clock-radius) - var(--number-offset))) rotate(0deg);
+
+  animation: numberGlow var(--number-glow-animation-duration) linear;
+  animation-delay: calc(var(--number-glow-animation-duration) * 1);
+}
+
+.four {
+  transform: rotate(30deg) translate(calc(var(--clock-radius) - var(--number-offset))) rotate(-30deg);
+  animation: numberGlow var(--number-glow-animation-duration) linear;
+  animation-delay: calc(var(--number-glow-animation-duration) * 2);
+}
+
+.five {
+  transform: rotate(60deg) translate(calc(var(--clock-radius) - var(--number-offset))) rotate(-60deg);
+  animation: numberGlow var(--number-glow-animation-duration) linear;
+  animation-delay: calc(var(--number-glow-animation-duration) * 3);
+}
+
+.six {
+  transform: rotate(90deg) translate(calc(var(--clock-radius) - var(--number-offset))) rotate(-90deg);
+  animation: numberGlow var(--number-glow-animation-duration) linear;
+  animation-delay: calc(var(--number-glow-animation-duration) * 4);
+}
+
+.seven {
+  transform: rotate(120deg) translate(calc(var(--clock-radius) - var(--number-offset))) rotate(-120deg);
+  animation: numberGlow var(--number-glow-animation-duration) linear;
+  animation-delay: calc(var(--number-glow-animation-duration) * 5);
+}
+
+.eight {
+  transform: rotate(150deg) translate(calc(var(--clock-radius) - var(--number-offset))) rotate(-150deg);
+  animation: numberGlow var(--number-glow-animation-duration) linear;
+  animation-delay: calc(var(--number-glow-animation-duration) * 6);
+}
+
+.nine {
+  transform: rotate(180deg) translate(calc(var(--clock-radius) - var(--number-offset))) rotate(-180deg);
+  animation: numberGlow var(--number-glow-animation-duration) linear;
+  animation-delay: calc(var(--number-glow-animation-duration) * 7);
+}
+
+.ten {
+  transform: rotate(210deg) translate(calc(var(--clock-radius) - var(--number-offset))) rotate(-210deg);
+  animation: numberGlow var(--number-glow-animation-duration) linear;
+  animation-delay: calc(var(--number-glow-animation-duration) * 8);
+}
+
+.eleven {
+  transform: rotate(240deg) translate(calc(var(--clock-radius) - var(--number-offset))) rotate(-240deg);
+  animation: numberGlow var(--number-glow-animation-duration) linear;
+  animation-delay: calc(var(--number-glow-animation-duration) * 9);
+}
+
+.twelve {
+  transform: rotate(270deg) translate(calc(var(--clock-radius) - var(--number-offset))) rotate(-270deg);
+  animation: numberGlow var(--number-glow-animation-duration) linear;
+  animation-delay: calc(var(--number-glow-animation-duration) * 10);
+}
